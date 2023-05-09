@@ -25,7 +25,7 @@ const compare = (data1, data2) => {
   return result;
 };
 
-const stringify = (value, replacer = ' ', spacesCount = 1) => {
+const stringify = (value, replacer = ' ', spacesCount = 2) => {
   const iter = (currentValue, depth) => {
     if (!_.isObject(currentValue) && !_.isUndefined(currentValue)) {
       return `${currentValue}`;
