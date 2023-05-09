@@ -4,7 +4,7 @@
   "description": "(https://github.com/po1inakoroleva/frontend-project-46/actions)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jest"
   },
   "author": "Polina Koroleva",
   "type": "module",
