@@ -1,8 +1,8 @@
-import fs from 'fs';
-import path from 'path';
 import _ from 'lodash';
+import path from 'path';
+import parse from './parsers.js';
 
-const compare = (data1, data2) => {
+const genDiff = (data1, data2) => {
   const keys = _.union(_.keys(data1), _.keys(data2)).sort();
   const result = [];
   for (let i = 0; i < keys.length; i += 1) {
@@ -55,18 +55,13 @@ ${currentIndent}+ ${data.key}: ${iter(data.newValue, depth + 1)}`;
   return iter(value, 1);
 };
 
-const getObject = (filepath) => {
-  const getValidPath = (file) => path.resolve(process.cwd(), file);
-  const parse = JSON.parse(fs.readFileSync(getValidPath(filepath), 'utf-8'));
-  return parse;
-};
-
-const genDiff = (filepath1, filepath2) => {
-  const obj1 = getObject(filepath1);
-  const obj2 = getObject(filepath2);
-  const comparisonResult = compare(obj1, obj2);
-  const result = stringify(comparisonResult);
+const getDiff = (filepath1, filepath2) => {
+  const getExtname = (file) => path.extname(file);
+  const obj1 = parse(filepath1, getExtname(filepath1));
+  const obj2 = parse(filepath2, getExtname(filepath2));
+  const diff = genDiff(obj1, obj2);
+  const result = stringify(diff);
   return result;
 };
 
-export default genDiff;
+export default getDiff;
