@@ -3,3 +3,5 @@
 [![Node CI](https://github.com/po1inakoroleva/frontend-project-46/actions/workflows/nodejs.yml/badge.svg)](https://github.com/po1inakoroleva/frontend-project-46/actions/workflows/nodejs.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/be3974c186589675e8cf/maintainability)](https://codeclimate.com/github/po1inakoroleva/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/be3974c186589675e8cf/test_coverage)](https://codeclimate.com/github/po1inakoroleva/frontend-project-46/test_coverage)
+### Run gendiff with plain json and yml files:
+[![asciicast](https://asciinema.org/a/P6toSiJE8ZbXNCQ6x4d3oW82U.svg)](https://asciinema.org/a/P6toSiJE8ZbXNCQ6x4d3oW82U)
