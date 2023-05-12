@@ -1,29 +1,28 @@
 import _ from 'lodash';
 
-const spacesCount = 4;
-const leftShift = 2;
+const getIndent = (depth, leftShift = 0, spacesCount = 4) => ' '.repeat(spacesCount * depth - leftShift);
+const getBracketIndent = (depth, spacesCount = 4) => ' '.repeat(spacesCount * depth - spacesCount);
 
 const stringify = (value, depth) => {
   if (!_.isObject(value)) {
     return `${value}`;
   }
 
-  const indentSize = spacesCount * depth;
-  const currentIndent = ' '.repeat(indentSize);
-  const bracketIndent = ' '.repeat(indentSize - spacesCount);
+  const currentIndent = getIndent(depth);
+  const bracketIndent = getBracketIndent(depth);
   const lines = Object.entries(value).map(([key, val]) => `${currentIndent}${key}: ${stringify(val, depth + 1)}`);
 
   return ['{', ...lines, `${bracketIndent}}`].join('\n');
 };
 
-const stylish = (value, replacer = ' ') => {
+const stylish = (value) => {
   const iter = (currentValue, depth) => {
     if (!_.isObject(currentValue)) {
       return `${currentValue}`;
     }
-    const indentSize = spacesCount * depth - leftShift;
-    const currentIndent = replacer.repeat(indentSize);
-    const bracketIndent = replacer.repeat(spacesCount * depth - spacesCount);
+
+    const currentIndent = getIndent(depth, 2);
+    const bracketIndent = getBracketIndent(depth);
     const lines = currentValue.flatMap((data) => {
       switch (data.type) {
         case 'added':
