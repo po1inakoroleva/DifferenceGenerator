@@ -26,9 +26,8 @@ const genDiff = (data1, data2) => {
         type: 'changed',
       };
     }
-    if (value1 === value2) {
-      return { key, value: data1[key], type: 'unchanged' };
-    }
+
+    return { key, value: data1[key], type: 'unchanged' };
   });
 
   return result;
