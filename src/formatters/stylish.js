@@ -40,10 +40,8 @@ ${currentIndent}+ ${data.key}: ${stringify(data.newValue, depth + 1)}`;
           return null;
       }
     });
-
     return ['{', ...lines, `${bracketIndent}}`].join('\n');
   };
-
   return iter(value, 1);
 };
 
