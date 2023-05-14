@@ -23,7 +23,7 @@ const stylish = (value) => {
 
     const currentIndent = getIndent(depth, 2);
     const bracketIndent = getBracketIndent(depth);
-    const lines = currentValue.flatMap((data) => {
+    const lines = currentValue.map((data) => {
       switch (data.type) {
         case 'added':
           return `${currentIndent}+ ${data.key}: ${stringify(data.value, depth + 1)}`;
@@ -37,7 +37,7 @@ ${currentIndent}+ ${data.key}: ${stringify(data.newValue, depth + 1)}`;
         case 'nested':
           return `${currentIndent}  ${data.key}: ${iter(data.children, depth + 1)}`;
         default:
-          return null;
+          throw new Error(`Unknown type: '${data.type}'!`);
       }
     });
     return ['{', ...lines, `${bracketIndent}}`].join('\n');
