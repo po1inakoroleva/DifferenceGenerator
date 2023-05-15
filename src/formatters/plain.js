@@ -33,7 +33,7 @@ const plain = (diff) => {
         }
       });
 
-    return result.join('\n');
+    return result.join('\r\n');
   };
 
   return iter(diff, '');
