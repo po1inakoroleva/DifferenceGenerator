@@ -23,21 +23,21 @@ const stylish = (value) => {
 
     const currentIndent = getIndent(depth, 2);
     const bracketIndent = getBracketIndent(depth);
-    const lines = currentValue.map((data) => {
-      switch (data.type) {
+    const lines = currentValue.map((node) => {
+      switch (node.type) {
         case 'added':
-          return `${currentIndent}+ ${data.key}: ${stringify(data.value, depth + 1)}`;
+          return `${currentIndent}+ ${node.key}: ${stringify(node.value, depth + 1)}`;
         case 'deleted':
-          return `${currentIndent}- ${data.key}: ${stringify(data.value, depth + 1)}`;
+          return `${currentIndent}- ${node.key}: ${stringify(node.value, depth + 1)}`;
         case 'unchanged':
-          return `${currentIndent}  ${data.key}: ${stringify(data.value, depth + 1)}`;
+          return `${currentIndent}  ${node.key}: ${stringify(node.value, depth + 1)}`;
         case 'changed':
-          return `${currentIndent}- ${data.key}: ${stringify(data.oldValue, depth + 1)}
-${currentIndent}+ ${data.key}: ${stringify(data.newValue, depth + 1)}`;
+          return `${currentIndent}- ${node.key}: ${stringify(node.oldValue, depth + 1)}
+${currentIndent}+ ${node.key}: ${stringify(node.newValue, depth + 1)}`;
         case 'nested':
-          return `${currentIndent}  ${data.key}: ${iter(data.children, depth + 1)}`;
+          return `${currentIndent}  ${node.key}: ${iter(node.children, depth + 1)}`;
         default:
-          throw new Error(`Unknown type: '${data.type}'!`);
+          throw new Error(`Unknown type: '${node.type}'!`);
       }
     });
     return ['{', ...lines, `${bracketIndent}}`].join('\n');
