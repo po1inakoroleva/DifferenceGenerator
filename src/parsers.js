@@ -14,5 +14,5 @@ export default (filepath) => {
   if (fileExt === '.yaml' || fileExt === '.yml') {
     return load(fs.readFileSync(getValidPath(filepath), 'utf8'));
   }
-  return console.error('Unknown file format');
+  throw new Error(`Unknown format: '${fileExt}'!`);
 };
