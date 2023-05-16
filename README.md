@@ -13,7 +13,7 @@ The Difference generator is a program that determines the difference between two
 Node.js 13.2.0 or higher.
 ### Installation
 ```
-git clone git@github.com:po1inakoroleva/frontend-project-44.git
+git clone git@github.com:po1inakoroleva/frontend-project-46.git
 ```
 ```
 make install
