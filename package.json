@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "(https://github.com/po1inakoroleva/frontend-project-46/actions)",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "npx jest"
   },
