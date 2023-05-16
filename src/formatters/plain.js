@@ -26,8 +26,6 @@ const plain = (diff) => {
             return `Property '${fullPath}' was removed`;
           case 'changed':
             return `Property '${fullPath}' was updated. From ${stringify(node.oldValue)} to ${stringify(node.newValue)}`;
-          case 'unchanged':
-            return null;
           default:
             throw new Error(`Unknown type: '${node.type}'!`);
         }
