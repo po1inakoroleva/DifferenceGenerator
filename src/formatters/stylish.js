@@ -15,15 +15,15 @@ const stringify = (value, depth) => {
   return ['{', ...lines, `${bracketIndent}}`].join('\n');
 };
 
-const stylish = (value) => {
-  const iter = (currentValue, depth) => {
-    if (!_.isObject(currentValue)) {
-      return `${currentValue}`;
+const stylish = (diff) => {
+  const iter = (data, depth) => {
+    if (!_.isObject(data)) {
+      return `${data}`;
     }
 
     const currentIndent = getIndent(depth, 2);
     const bracketIndent = getBracketIndent(depth);
-    const lines = currentValue.map((node) => {
+    const lines = data.map((node) => {
       switch (node.type) {
         case 'added':
           return `${currentIndent}+ ${node.key}: ${stringify(node.value, depth + 1)}`;
@@ -42,7 +42,7 @@ ${currentIndent}+ ${node.key}: ${stringify(node.newValue, depth + 1)}`;
     });
     return ['{', ...lines, `${bracketIndent}}`].join('\n');
   };
-  return iter(value, 1);
+  return iter(diff, 1);
 };
 
 export default stylish;

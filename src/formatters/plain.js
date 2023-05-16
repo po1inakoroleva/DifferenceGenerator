@@ -14,7 +14,7 @@ const plain = (diff) => {
   const iter = (data, path) => {
     const result = data
       .filter((node) => node.type !== 'unchanged')
-      .flatMap((node) => {
+      .map((node) => {
         const fullPath = path === '' ? `${node.key}` : `${path}.${node.key}`;
 
         switch (node.type) {
