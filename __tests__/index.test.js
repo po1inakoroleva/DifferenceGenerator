@@ -12,7 +12,7 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 
 const expectedStylish = readFile('expect_stylish.txt');
 const expectedPlain = readFile('expect_plain.txt');
-const expectedJSON = readFile('expect_json.json');
+const expectedJSON = readFile('expect_json.txt');
 
 test('getDiff default formatter', () => {
   expect(getDiff(getFixturePath('filepath1.json'), getFixturePath('filepath2.json'))).toEqual(expectedStylish);
