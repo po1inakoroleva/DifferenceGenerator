@@ -10,15 +10,9 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-let expectedStylish;
-let expectedPlain;
-let expectedJSON;
-
-beforeAll(() => {
-  expectedStylish = readFile('expected_stylish.txt');
-  expectedPlain = readFile('expected_plain.txt');
-  expectedJSON = readFile('expected_json.txt');
-});
+const expectedStylish = readFile('expected_stylish.txt');
+const expectedPlain = readFile('expected_plain.txt');
+const expectedJSON = readFile('expected_json.txt');
 
 const extensions = ['json', 'yml'];
 
