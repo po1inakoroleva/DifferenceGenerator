@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "The Difference generator is a program that determines the difference between two data structures. (https://github.com/po1inakoroleva/frontend-project-46/actions)",
+  "description": "The project is a program that determines the difference between two data structures. (https://github.com/po1inakoroleva/frontend-project-46/actions)",
   "main": "src/index.js",
   "scripts": {
     "test": "npx jest"
